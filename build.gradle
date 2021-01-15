@@ -1,3 +1,4 @@
+
 plugins {
     id 'java'
     id "org.flywaydb.flyway" version "7.5.0"
@@ -11,6 +12,7 @@ sourceCompatibility = 1.8
 repositories {
     mavenCentral()
 }
+
 
 
 dependencies {
@@ -34,6 +36,12 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.flywaydb/flyway-core
     compile group: 'org.flywaydb', name: 'flyway-core', version: '7.5.0'
+
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.16'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
 
 
 }

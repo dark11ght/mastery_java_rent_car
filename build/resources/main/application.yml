@@ -6,16 +6,6 @@ spring:
     url: "jdbc:postgresql://localhost:5432/rentcar?autoreconnect=true"
     password: "root"
     username: "postgres"
-    testOnBorrow: true
-    testWhileIdle: true
-    timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 30000
-    validationQuery: SELECT 1
-    max-active: 15
-    max-idle: 10
-    max-wait: 8000
-flyway:
-  url: jdbc:postgresql://localhost:5432/rentcar
-  schemas: rentcar
-  user: "postgres"
-  password: "root"
+  flyway:
+    enabled: true
+    validate-on-migrate: true
