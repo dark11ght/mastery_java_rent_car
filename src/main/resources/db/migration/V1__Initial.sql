@@ -3,7 +3,7 @@ create table USERS
 	id bigserial,
 	login VARCHAR not null,
 	password VARCHAR not null,
-	role_id INT default 0,
+	role_id INT default 1,
 	active_status BOOLEAN default true not null,
 	email VARCHAR not null,
 	first_name VARCHAR not null,
@@ -11,7 +11,7 @@ create table USERS
 	phone_number VARCHAR not null,
 	passport_serial_number VARCHAR not null,
 	driver_licence_serial_number VARCHAR not null,
-	registration_date date not null
+	registration_date date
 );
 
 create unique index users_driver_licence_serial_number_uindex
@@ -55,7 +55,7 @@ alter table roles
 create table country_of_manufacture
 (
 	id serial,
-	country int not null
+	country VARCHAR not null
 );
 
 create unique index country_of_manufacture_country_uindex
@@ -121,8 +121,8 @@ alter table car_status
 create table car
 (
 	id serial,
-	model_id int not null,
 	mark_id int not null,
+	model_id int not null,
 	millage int not null,
 	price FLOAT not null,
 	car_status_id int not null
@@ -184,3 +184,42 @@ alter table orders
 	add constraint orders_car_id_fk
 		foreign key (car_id) references car;
 
+INSERT INTO roles (id, role) VALUES (1, 'user');
+INSERT INTO roles (id, role) VALUES (2, 'admin');
+
+INSERT INTO country_of_manufacture (id, country) VALUES (1, 'Russia');
+INSERT INTO country_of_manufacture (id, country) VALUES (2, 'Germany');
+INSERT INTO country_of_manufacture (id, country) VALUES (3, 'France');
+
+INSERT INTO car_mark (id, mark, country_id) VALUES (1, 'Lada', 1);
+INSERT INTO car_mark (id, mark, country_id) VALUES (2, 'Wolksvagen', 2);
+INSERT INTO car_mark (id, mark, country_id) VALUES (3, 'Renault', 3);
+INSERT INTO car_mark (id, mark, country_id) VALUES (4, 'Citroen', 3);
+
+INSERT INTO car_model (id, model) VALUES (1, 'Vesta');
+INSERT INTO car_model (id, model) VALUES (2, 'Vesta SW');
+INSERT INTO car_model (id, model) VALUES (3, 'Polo');
+INSERT INTO car_model (id, model) VALUES (4, 'Logan');
+INSERT INTO car_model (id, model) VALUES (5, 'Sandero');
+INSERT INTO car_model (id, model) VALUES (6, 'C4 Sedan');
+INSERT INTO car_model (id, model) VALUES (7, 'C-elysee');
+
+INSERT INTO car_status (id, car_status) VALUES (1, 'free');
+INSERT INTO car_status (id, car_status) VALUES (2, 'busy');
+INSERT INTO car_status (id, car_status) VALUES (3, 'service');
+
+INSERT INTO car (id, mark_id, model_id, millage, price, car_status_id) VALUES (1, 1, 1, 12546, 2, 1);
+INSERT INTO car (id, mark_id, model_id, millage, price, car_status_id) VALUES (2, 1, 2, 6987, 3, 1);
+INSERT INTO car (id, mark_id, model_id, millage, price, car_status_id) VALUES (3, 1, 2, 12345, 3, 2);
+INSERT INTO car (id, mark_id, model_id, millage, price, car_status_id) VALUES (4, 2, 3, 54321, 4, 1);
+INSERT INTO car (id, mark_id, model_id, millage, price, car_status_id) VALUES (5, 2, 3, 48531, 4, 1);
+INSERT INTO car (id, mark_id, model_id, millage, price, car_status_id) VALUES (6, 3, 4, 15679, 1, 3);
+INSERT INTO car (id, mark_id, model_id, millage, price, car_status_id) VALUES (7, 3, 5, 23698, 2, 2);
+INSERT INTO car (id, mark_id, model_id, millage, price, car_status_id) VALUES (8, 4, 6, 123, 4, 1);
+INSERT INTO car (id, mark_id, model_id, millage, price, car_status_id) VALUES (9, 4, 7, 56978, 3, 2);
+
+INSERT INTO users (id, login, password, role_id, active_status, email, first_name, last_name, phone_number, passport_serial_number, driver_licence_serial_number) VALUES (1, 'admin', 'password123', 2, true, 'adminex@mail.ru', 'Pavel', 'Shakhrai', '+375291234567', 'RB12345678', 'DR1234567');
+INSERT INTO users (id, login, password, role_id, active_status, email, first_name, last_name, phone_number, passport_serial_number, driver_licence_serial_number) VALUES (2, 'batman', 'qwery123', 1, true, 'batman@gmail.com', 'Bruce', 'Wayne', '+7569874556', 'USA12345678', 'DRUSA1234567');
+INSERT INTO users (id, login, password, role_id, active_status, email, first_name, last_name, phone_number, passport_serial_number, driver_licence_serial_number) VALUES (3, 'ivan123', 'qwery123', 1, true, 'ivan@yandex.ru', 'Ivan', 'Ivanov', '+375296543217', 'RB56789132', 'DR5698716');
+INSERT INTO users (id, login, password, role_id, active_status, email, first_name, last_name, phone_number, passport_serial_number, driver_licence_serial_number) VALUES (4, 'vasili', 'qwery123', 1, true, 'vasili@yandex.ru', 'Vasili', 'Pupkin', '+375336598745', 'RB12597561', 'DR2365897');
+INSERT INTO users (id, login, password, role_id, active_status, email, first_name, last_name, phone_number, passport_serial_number, driver_licence_serial_number) VALUES (5, 'vasili123', 'qwery123', 1, false, 'vasili123@gmail.com', 'Vasili', 'Vasiliy', '+375445468794', 'RB5678123', 'DR021354');
