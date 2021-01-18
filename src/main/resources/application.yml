@@ -3,9 +3,9 @@ spring:
     name: SpringApplication
   datasource:
     driverClassName: org.postgresql.Driver
-    url: "jdbc:postgresql://localhost:5432/rentcar?autoreconnect=true"
-    password: "root"
-    username: "postgres"
+    url: ${URL:jdbc:postgresql://localhost:5432/rentcar?autoreconnect=true}
+    password: ${PASSWORD:root}
+    username: ${USERMNAME:postgres}
   flyway:
     enabled: true
     validate-on-migrate: true
