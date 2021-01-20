@@ -9,3 +9,8 @@ spring:
   flyway:
     enabled: true
     validate-on-migrate: true
+
+# Logging
+logging:
+  file:
+    name: /Users/logstash/ELK-Stack/logback/springsecuritydata.log
