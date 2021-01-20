@@ -2,14 +2,6 @@ version: '3'
 
 services:
 
-  elk:
-    image: sebp/elk
-    restart: always
-    ports:
-    - 5601:5601
-    - 9200:9200
-    - 5044:5044
-
   my_postgres:
     image: postgres:latest
     environment:
@@ -19,7 +11,25 @@ services:
     ports:
       - 5432:5432
     volumes:
-    - db-data:/var/lib/postgresql/data
+      - db-data:/var/lib/postgresql/data
     restart: always
+
+  elk:
+    image: sebp/elk
+    ports:
+      - 5601:5601 #kibana
+      - 9200:9200 #elastic
+      - 5044:5044 #logstash beats filebeat
+    restart: always
+
+  filebeat:
+    image: olinicola/filebeat:1.1.2
+    volumes:
+      - /path/to/rent_car:/rent_car/filebeat
+    links:
+      - "elk"
+    depends_on:
+      - "elk"
+
 volumes:
   db-data:
