@@ -2,15 +2,10 @@ spring:
   application:
     name: SpringApplication
   datasource:
-    driverClassName: org.postgresql.Driver
+    driverClassName: ${driverClassName:org.postgresql.Driver}
     url: ${URL:jdbc:postgresql://localhost:5432/rentcar?autoreconnect=true}
     password: ${PASSWORD:root}
     username: ${USERMNAME:postgres}
   flyway:
     enabled: true
     validate-on-migrate: true
-
-# Logging
-logging:
-  file:
-    name: /Users/logstash/ELK-Stack/logback/springsecuritydata.log
