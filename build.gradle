@@ -51,7 +51,9 @@ dependencies {
     // https://mvnrepository.com/artifact/org.mapstruct/mapstruct-jdk8
     compile group: 'org.mapstruct', name: 'mapstruct-jdk8', version: '1.4.1.Final'
 
-
+    // https://mvnrepository.com/artifact/org.mapstruct/mapstruct-processor
+    compile group: 'org.mapstruct', name: 'mapstruct-processor', version: '1.4.1.Final'
+    
     compileOnly 'org.projectlombok:lombok:1.18.16'
     annotationProcessor 'org.projectlombok:lombok:1.18.16'
 

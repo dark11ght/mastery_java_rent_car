@@ -30,9 +30,14 @@ public class UserController {
 
         if (LoginPasswordValidator.validationLogin(login) && LoginPasswordValidator.validationPassword(password)) {
             User user = userService.getUserByLogin(login, password);
+
             if (user != null) {
                 modelAndView.addObject("user", user);
                 modelAndView.setViewName(PageEnum.WELCOME_PAGE.getValue());
+            } else {
+                String message = "User not found";
+                modelAndView.addObject("message", message);
+                modelAndView.setViewName(PageEnum.INFORMER_PAGE.getValue());
             }
 
         } else {
