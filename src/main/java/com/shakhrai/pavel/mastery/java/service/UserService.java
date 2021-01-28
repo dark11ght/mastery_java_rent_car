@@ -10,6 +10,6 @@ public interface UserService {
 
     public User getUserById(Long id);
 
-    public User getUserByLogin(String login);
+    public User getUserByLogin(String login, String password);
 
 }

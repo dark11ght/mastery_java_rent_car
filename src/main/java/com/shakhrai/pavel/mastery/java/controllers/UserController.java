@@ -2,6 +2,7 @@ package com.shakhrai.pavel.mastery.java.controllers;
 
 import com.shakhrai.pavel.mastery.java.entities.User;
 import com.shakhrai.pavel.mastery.java.service.UserService;
+import com.shakhrai.pavel.mastery.java.validation.LoginPasswordValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,20 +19,22 @@ public class UserController {
     @RequestMapping(value = "/authorization")
     public ModelAndView authorization(@RequestParam String login, @RequestParam String password) {
 
-
         ModelAndView modelAndView = new ModelAndView();
-        if(login.isEmpty()){
+
+        if (login.isEmpty()) {
             String message = "Enter login";
             modelAndView.addObject("message", message);
             modelAndView.setViewName(PageEnum.INFORMER_PAGE.getValue());
             return modelAndView;
         }
-        User user = userService.getUserByLogin(login);
 
+        if (LoginPasswordValidator.validationLogin(login) && LoginPasswordValidator.validationPassword(password)) {
+            User user = userService.getUserByLogin(login, password);
+            if (user != null) {
+                modelAndView.addObject("user", user);
+                modelAndView.setViewName(PageEnum.WELCOME_PAGE.getValue());
+            }
 
-        if (user != null & user.getPassword().equals(password)) {
-            modelAndView.addObject("user", user);
-            modelAndView.setViewName(PageEnum.WELCOME_PAGE.getValue());
         } else {
             String message = "Incorrect login or password";
             modelAndView.addObject("message", message);
