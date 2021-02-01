@@ -22,8 +22,4 @@ public class Role implements Serializable {
     @Column(name = "role", unique = true, nullable = false)
     private String role;
 
-    public Role() {
-    }
-
-
 }

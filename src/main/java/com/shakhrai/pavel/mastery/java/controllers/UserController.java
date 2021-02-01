@@ -1,5 +1,6 @@
 package com.shakhrai.pavel.mastery.java.controllers;
 
+import com.shakhrai.pavel.mastery.java.dto.UserDTO;
 import com.shakhrai.pavel.mastery.java.entities.User;
 import com.shakhrai.pavel.mastery.java.service.UserService;
 import com.shakhrai.pavel.mastery.java.validation.LoginPasswordValidator;
@@ -29,10 +30,10 @@ public class UserController {
         }
 
         if (LoginPasswordValidator.validationLogin(login) && LoginPasswordValidator.validationPassword(password)) {
-            User user = userService.getUserByLogin(login, password);
+            UserDTO userDTO = userService.getUserByLogin(login, password);
 
-            if (user != null) {
-                modelAndView.addObject("user", user);
+            if (userDTO != null) {
+                modelAndView.addObject("user", userDTO);
                 modelAndView.setViewName(PageEnum.WELCOME_PAGE.getValue());
             } else {
                 String message = "User not found";

@@ -49,8 +49,4 @@ public class Order implements Serializable {
     @Column(name = "notes")
     private String notes;
 
-    public Order() {
-    }
-
-
 }

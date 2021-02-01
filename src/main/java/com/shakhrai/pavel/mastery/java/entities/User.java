@@ -54,7 +54,5 @@ public class User implements Serializable {
     @Column(name = "registration_date")
     private Timestamp dateOfRegistration;
 
-    public User() {
-    }
 
 }

@@ -22,7 +22,4 @@ public class CarStatus implements Serializable {
     @Column(name = "car_status", unique = true, nullable = false)
     private String carStatus;
 
-    public CarStatus() {
-    }
-
 }

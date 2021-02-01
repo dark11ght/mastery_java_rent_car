@@ -26,8 +26,4 @@ public class CarMark implements Serializable {
     @JoinColumn(name = "country_id")
     private CountryOfManufacture countryOfManufacture;
 
-    public CarMark() {
-    }
-
-
 }

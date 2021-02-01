@@ -23,8 +23,4 @@ public class CarModel implements Serializable {
     @Column(name = "model", unique = true, nullable = false)
     private String modelName;
 
-    public CarModel() {
-    }
-
-
 }

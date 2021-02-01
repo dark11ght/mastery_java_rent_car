@@ -38,7 +38,5 @@ public class Car implements Serializable {
     @JoinColumn(name = "car_status_id")
     private CarStatus carStatus;
 
-    public Car() {
-    }
 
 }

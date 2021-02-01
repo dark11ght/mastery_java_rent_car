@@ -22,8 +22,4 @@ public class CountryOfManufacture implements Serializable {
     @Column(name = "country", unique = true, nullable = false)
     private String country;
 
-    public CountryOfManufacture() {
-    }
-
-
 }

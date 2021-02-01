@@ -1,6 +1,8 @@
 package com.shakhrai.pavel.mastery.java.service.impl;
 
+import com.shakhrai.pavel.mastery.java.dto.UserDTO;
 import com.shakhrai.pavel.mastery.java.entities.User;
+import com.shakhrai.pavel.mastery.java.mapper.UserMapper;
 import com.shakhrai.pavel.mastery.java.repositories.UsersRepository;
 import com.shakhrai.pavel.mastery.java.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,20 +15,27 @@ public class UserServiceImpl implements UserService {
     private UsersRepository usersRepository;
 
     @Override
-    public User getUserById(Long id) {
+    public UserDTO getUserById(Long id) {
         return null;
     }
 
+    /*@Autowired
+    UserMapper userMapper;*/
+
+
     @Override
-    public User getUserByLogin(String login, String password) {
+    public UserDTO getUserByLogin(String login, String password) {
 
         User user = usersRepository.findByLogin(login);
 
-        if (user != null && user.getPassword().matches(password)) {
-            return user;
+        UserDTO userDTO = UserMapper.USER_MAPPER.userToUserDTO(user);
+
+        if (userDTO != null && userDTO.getPassword().matches(password)) {
+            return userDTO;
         }
 
         return null;
     }
+
 
 }
