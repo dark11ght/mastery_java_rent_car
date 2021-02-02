@@ -20,39 +20,40 @@
             <a class="nav-link" href="reg_page">Регистрация</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="ger_all_car_from_DB">Прайс</a>
+            <a class="nav-link" href="/car/findAllCars">Прайс</a>
         </li>
 
     </ul>
-
-    <div>
-        <table class="table">
-            <caption>Hello</caption>
-            <thead class="thead-light">
-            <tr>
-                <th scope="col">Имя</th>
-                <th scope="col">Email</th>
-                <th scope="col">Роль</th>
-                <th scope="col">Статус</th>
-                <th scope="col">Имя</th>
-                <th scope="col">Фамилия</th>
-                <th scope="col">Водительское удостоверение</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td th:text="${user.getLogin}"></td>
-                <td th:text="${user.getEmail}"></td>
-                <td th:text="${user.getRole.role}"></td>
-                <td th:text="${user.isActiveStatus}"></td>
-                <td th:text="${user.getFirstName}"></td>
-                <td th:text="${user.getLastName}"></td>
-                <td th:text="${user.getDriverLicenceNumber}"></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
 </div>
+
+<div>
+    <table class="table">
+        <caption>Hello</caption>
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">Имя</th>
+            <th scope="col">Email</th>
+            <th scope="col">Роль</th>
+            <th scope="col">Статус</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Фамилия</th>
+            <th scope="col">Водительское удостоверение</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${user.getLogin}"></td>
+            <td th:text="${user.getEmail}"></td>
+            <td th:text="${user.getRole.role}"></td>
+            <td th:text="${user.isActiveStatus}"></td>
+            <td th:text="${user.getFirstName}"></td>
+            <td th:text="${user.getLastName}"></td>
+            <td th:text="${user.getDriverLicenceNumber}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

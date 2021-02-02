@@ -7,8 +7,12 @@ public interface UserService {
 
     public UserDTO getUserById(Long id);
 
-    //public User getUserByLogin(String login, String password);
-
     public UserDTO getUserByLogin(String login, String password);
+
+    public boolean deleteUserById(Long id);
+
+    public UserDTO editUser(User user);
+
+    public UserDTO createUser(User user);
 
 }
