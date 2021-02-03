@@ -1,6 +1,7 @@
 
 plugins {
     id 'java'
+    id 'io.spring.dependency-management' version '1.0.1.RELEASE'
     id "org.flywaydb.flyway" version "7.5.0"
 }
 
@@ -15,6 +16,7 @@ ext{
     logstashLogbackEncoderVersion = '6.6'
     jstlVersion = '1.2'
     lombokMapstructBindingVersion = "0.2.0"
+    log4jVersion = '2.14.0'
 }
 
 group 'com.shakhrai.pavel.rent.car'
@@ -29,6 +31,7 @@ repositories {
 
 
 dependencies {
+
     testCompile group: 'junit', name: 'junit', version: junitVersion
 
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter
@@ -77,6 +80,13 @@ dependencies {
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version : lombokVersion
     testCompileOnly group: 'org.projectlombok', name: 'lombok', version: lombokVersion
     testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: lombokVersion
+
+    // https://mvnrepository.com/artifact/log4j/log4j
+
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: log4jVersion
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: log4jVersion
+    //compile group: 'log4j', name: 'log4j', version: log4jVersion
+
 
 
 }

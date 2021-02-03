@@ -5,15 +5,19 @@ import com.shakhrai.pavel.mastery.java.entities.Car;
 import com.shakhrai.pavel.mastery.java.mapper.CarMapper;
 import com.shakhrai.pavel.mastery.java.repositories.CarRepository;
 import com.shakhrai.pavel.mastery.java.service.CarService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.ModelAndView;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class CarServiceImpl implements CarService {
+
+    private static final Logger LOGGER = LogManager.getLogger(CarServiceImpl.class);
 
     @Autowired
     CarRepository carRepository;
@@ -29,7 +33,6 @@ public class CarServiceImpl implements CarService {
 
         for (Car car : carList) {
             carDTOList.add(carMapper.carToCarDTO(car));
-
         }
         return carDTOList;
     }
