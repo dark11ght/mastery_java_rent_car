@@ -4,6 +4,7 @@ public enum PageEnum {
     INDEX("index"),
     WELCOME_PAGE("welcome_page"),
     SIGN_PAGE("sign_page"),
+    REGISTRATION_PAGE("registration_page"),
     CARS_LIST_PAGE("cars_list"),
     INFORMER_PAGE("informer");
 

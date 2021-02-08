@@ -11,10 +11,14 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+
 @Service
+
 public class UserServiceImpl implements UserService {
 
-    private static final Logger LOGGER = LogManager.getLogger(CarServiceImpl.class);
+    private static final Logger LOGGER = LogManager.getLogger();
 
     @Autowired
     UserMapper userMapper;
@@ -52,8 +56,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDTO createUser(User user) {
-        return null;
+    public boolean createUser(User user) {
+        User userFromDB = usersRepository.findByLogin(user.getLogin());
+        if(userFromDB != null){
+            return false;
+        }
+
+        user.setDateOfRegistration(Timestamp.valueOf(LocalDateTime.now()));
+        System.out.println(user);
+        usersRepository.save(user);
+
+        return true;
     }
 
 

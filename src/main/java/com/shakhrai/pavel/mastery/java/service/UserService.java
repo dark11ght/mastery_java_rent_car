@@ -13,6 +13,6 @@ public interface UserService {
 
     public UserDTO editUser(User user);
 
-    public UserDTO createUser(User user);
+    public boolean createUser(User user);
 
 }

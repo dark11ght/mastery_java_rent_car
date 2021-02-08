@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="~{fragments/header :: header}">
+    <meta charset="UTF-8">
+    <title>registration</title>
+</head>
+<body>
+<div th:replace="~{fragments/nav_bar :: nav_bar}"></div>
+
+<form class="needs-validation" action="/user/registration" novalidate method="POST">
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="login">Enter login</label>
+            <input type="text" class="form-control" name="login" id="login" placeholder="login" required>
+            <div class="invalid-feedback">
+                Enter login
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label for="password">Enter password</label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="password" required>
+            <div class="invalid-feedback">
+                Enter password
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label for="confirm_password">Repeat password</label>
+            <input type="password" class="form-control" name="confirm_password" id="confirm_password"
+                   placeholder="confirm password" required>
+            <div class="invalid-feedback">
+                Repeat password
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label for="firstName">Enter first name</label>
+            <input type="text" class="form-control" name="firstName" id="firstName" placeholder="first name" required>
+            <div class="invalid-feedback">
+                Enter first name
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label for="lastName">Enter last name</label>
+            <input type="text" class="form-control" name="lastName" id="lastName" placeholder="last name" required>
+            <div class="invalid-feedback">
+                Enter last name
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label for="email">Enter email</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                </div>
+                <input type="text" class="form-control" name="email" id="email" placeholder="email"
+                       aria-describedby="inputGroupPrepend" required>
+                <div class="invalid-feedback">
+                    Enter email
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label for="passportSerialNumber">Enter passport serial number</label>
+            <input type="text" class="form-control" name="passportSerialNumber" id="passportSerialNumber"
+                   placeholder="passport serial number" required>
+            <div class="invalid-feedback">
+                Enter passport serial number
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label for="phoneNumber">Enter phone number</label>
+            <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="phone number"
+                   required>
+            <div class="invalid-feedback">
+                Enter phone number
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label for="driverLicenceNumber">Enter driver licence number</label>
+            <input type="text" class="form-control" name="driverLicenceNumber" id="driverLicenceNumber"
+                   placeholder="driver licenceNumber" required>
+            <div class="invalid-feedback">
+                Enter driver licence number
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" name="command" value="USER_REGISTRATION">Registration</button>
+    </div>
+</form>
+</body>
+</html>

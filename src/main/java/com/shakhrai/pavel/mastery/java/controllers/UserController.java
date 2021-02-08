@@ -50,4 +50,25 @@ public class UserController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/registration")
+    public ModelAndView registration(User user) {
+
+        ModelAndView modelAndView = new ModelAndView();
+
+
+        if (LoginPasswordValidator.validationLogin(user.getLogin()) && LoginPasswordValidator.validationPassword(user.getPassword())) {
+            if(userService.createUser(user)) {
+                String message = "User created";
+                modelAndView.addObject("message", message);
+                modelAndView.setViewName(PageEnum.INFORMER_PAGE.getValue());
+            }else {
+            String message = "User already exist";
+            modelAndView.addObject("message", message);
+            modelAndView.setViewName(PageEnum.INFORMER_PAGE.getValue());
+            }
+        }
+        return modelAndView;
+    }
+
+
 }

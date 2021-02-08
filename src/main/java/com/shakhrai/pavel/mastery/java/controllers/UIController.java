@@ -21,5 +21,10 @@ public class UIController {
         return PageEnum.SIGN_PAGE.getValue();
     }
 
+    @GetMapping(value = "registration_page")
+    public String getRegistrationPage() {
+        return PageEnum.REGISTRATION_PAGE.getValue();
+    }
+
 }
 
